@@ -5,98 +5,11 @@
     <title>Shelly DDD Wizard</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #f6f8fa;
-            --primary: #0069ff;
-            --text: #111827;
-            --card: #ffffff;
-            --radius: 12px;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-
-        * {
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
-
-        body {
-            margin: 0;
-            background: var(--bg);
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 40px;
-            min-height: 100vh;
-            color: var(--text);
-        }
-
-        .card {
-            background: var(--card);
-            padding: 32px 40px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            width: 100%;
-            max-width: 480px;
-        }
-
-        h1 {
-            font-size: 1.5rem;
-            margin-top: 0;
-            margin-bottom: 24px;
-            text-align: center;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 6px;
-            font-weight: 600;
-        }
-
-        select,
-        input {
-            width: 100%;
-            padding: 10px 12px;
-            border: 1px solid #d1d5db;
-            border-radius: var(--radius);
-            margin-bottom: 20px;
-            font-size: 1rem;
-        }
-
-        button {
-            background: var(--primary);
-            color: #fff;
-            border: none;
-            padding: 12px 16px;
-            border-radius: var(--radius);
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        button:hover {
-            background: #0053d6;
-        }
-
-        .output {
-            margin-top: 20px;
-            word-break: break-all;
-            background: #f3f4f6;
-            padding: 12px;
-            border-radius: var(--radius);
-            font-family: monospace;
-            font-size: 0.9rem;
-        }
-
-        .hidden {
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
 <div class="card">
-    <h1>Shelly DDD Wizard</h1>
+    <h1>Shelly DDD Wizard (Gen2+ RPC)</h1>
 
     <label for="device">Device</label>
     <select id="device">
@@ -119,9 +32,6 @@
     <label for="ip">Device IP</label>
     <input type="text" id="ip" placeholder="e.g. 192.168.1.10" />
 
-    <label for="channel">Channel (if applicable)</label>
-    <input type="number" id="channel" min="0" value="0" />
-
     <button id="generate">Generate URL</button>
 
     <div id="outputWrapper" class="hidden">
@@ -131,6 +41,6 @@
     </div>
 </div>
 
-<script src="app.js"></script>
+<script type="module" src="app.js"></script>
 </body>
 </html>
