@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Shelly DDD Wizard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+<div class="card">
+    <h1>Shelly DDD Wizard (Gen2+ RPC)</h1>
+
+    <label for="device">Device</label>
+    <select id="device">
+        <option value="pro1">Shelly Pro 1</option>
+        <option value="pro2">Shelly Pro 2</option>
+        <option value="pro4pm">Shelly Pro 4PM</option>
+        <option value="plug">Shelly Plug / Plug S / Plus Plug</option>
+        <option value="dimmer2">Shelly Dimmer 2</option>
+        <option value="light-plus">Shelly Plus Light</option>
+        <option value="roller">Shelly Roller</option>
+        <option value="rgbw2">Shelly RGBW2</option>
+        <option value="other">Other</option>
+    </select>
+
+    <label for="action">Action</label>
+    <select id="action"></select>
+
+    <div id="extras"></div>
+
+    <label for="ip">Device IP</label>
+    <input type="text" id="ip" placeholder="e.g. 192.168.1.10" />
+
+    <button id="generate">Generate URL</button>
+
+    <div id="outputWrapper" class="hidden">
+        <p>Generated URL:</p>
+        <div id="output" class="output"></div>
+        <button id="copy">Copy</button>
+    </div>
+</div>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
