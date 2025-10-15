@@ -100,12 +100,35 @@ document.addEventListener("DOMContentLoaded", () => {
         const query = new URLSearchParams();
         Object.entries(params).forEach(([k, v]) => query.set(k, v));
 
+        const values = {};
         (extras || []).forEach(extra => {
             const val = document.getElementById(extra)?.value;
-            if (val) query.set(extra, val);
+            if (val !== undefined && val !== "") {
+                values[extra] = val;
+            }
         });
 
-        return `http://${ip}/rpc/${dev.service}.${method}?${query.toString()}`;
+        let rgbString = null;
+
+        if ("red" in values || "green" in values || "blue" in values) {
+            const r = values.red ?? 0;
+            const g = values.green ?? 0;
+            const b = values.blue ?? 0;
+            rgbString = `[${r},${g},${b}]`;
+            delete values.red;
+            delete values.green;
+            delete values.blue;
+        }
+
+        Object.entries(values).forEach(([k, v]) => query.set(k, v));
+
+        const base = `http://${ip}/rpc/${dev.service}.${method}`;
+        const queryStr = query.toString();
+        const finalUrl = rgbString
+            ? `${base}?${queryStr}&rgb=${rgbString}`
+            : `${base}?${queryStr}`;
+
+        return finalUrl;
     }
 
     function copyToClipboard(text) {

@@ -7,7 +7,9 @@ export const RGBW = {
             extras: [
                 "id",
                 "brightness",
-                "rgb",               // [r,g,b]
+                "red",
+                "green",
+                "blue",
                 "white",
                 "transition_duration",
                 "toggle_after",
